@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class gameMain : MonoBehaviour
+public class stage1GameController : MonoBehaviour
 {
-    
     // Start is called before the first frame update
     void Start()
     {
