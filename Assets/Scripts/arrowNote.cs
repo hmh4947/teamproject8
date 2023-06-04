@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class arrowNote : MonoBehaviour
 {
+    BoxCollider2D Collider;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Collider = GetComponent<BoxCollider2D>();
+        if(transform.rotation.eulerAngles.z == 90.0f
+            || transform.rotation.eulerAngles.z == 270.0f){
+            Collider.size = new Vector2(0.01f, 1.0f);
+            Debug.Log("change");
+        }
     }
 
     // Update is called once per frame
@@ -17,6 +23,7 @@ public class arrowNote : MonoBehaviour
 
         if(transform.position.y < -10.0f){
             Destroy(gameObject);
+            
         }
     }
 }
