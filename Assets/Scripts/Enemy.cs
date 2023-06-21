@@ -6,18 +6,25 @@ public class Enemy : MonoBehaviour
 {
     Rigidbody2D rigid;
     public int nextMove;
-    // public int nextMove;
-
+   
+  
+   void Start()
+    {
+      
+    }
     // Start is called before the first frame update
     void Awake()
     {
+        
         rigid = GetComponent<Rigidbody2D>();
         Invoke("Think", 5);
+        
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+       
         //Move
         rigid.velocity = new Vector2(-1, rigid.velocity.y);
 
@@ -45,5 +52,5 @@ public class Enemy : MonoBehaviour
         float time = Random.Range(2f, 5f);
         Invoke("Think", 5); 
     }
-
+     
 }
