@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Platform
   - jump
+  - Enemy
+  - Floor
   layers:
   - Default
   - TransparentFX

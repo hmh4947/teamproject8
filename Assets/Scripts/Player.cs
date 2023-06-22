@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
         if (rigid.velocity.y < 0 && anim.GetBool("isJumping"))
         {
             Debug.DrawRay(rigid.position, Vector3.down, new Color(0, 1, 0));
-            RaycastHit2D rayhit = Physics2D.Raycast(rigid.position, Vector3.down, 0.5f, LayerMask.GetMask("Platform"));
+            RaycastHit2D rayhit = Physics2D.Raycast(rigid.position, Vector3.down, 0.5f, LayerMask.GetMask("Floor"));
  
          if (rayhit.collider != null)
             {
@@ -82,6 +82,6 @@ public class Player : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
-            SceneManager.LoadScene("Main");
+            SceneManager.LoadScene("Stage4");
     }
 }

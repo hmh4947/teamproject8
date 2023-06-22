@@ -45,7 +45,7 @@ public class Enemy2 : MonoBehaviour
         {
         if (collision.gameObject.tag == "Platform")
         {
-            Debug.Log("¥Í¿Ω");
+        
 
             this.transform.Translate(Vector2.up * 0.5f * Time.deltaTime);
           transform.position = Vector3.Slerp(gameObject.transform.position, targetPosition.transform.position, 0.1f);
