@@ -12,20 +12,20 @@ public class Enemy2 : MonoBehaviour
     private Transform target;
 
     public GameObject targetPosition;
-    
-    
+
+
 
     // Start is called before the first frame update
 
-    private void Start()
+    void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 
 
-       
+     
     }
-
+    
 
     // Update is called once per frame
     private void Update()
@@ -39,13 +39,24 @@ public class Enemy2 : MonoBehaviour
 
  
     }
+
+   
     void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "jump")
-        this.transform.Translate(Vector2.up * 1.0f * Time.deltaTime);
-        transform.position = Vector3.Slerp(gameObject.transform.position, targetPosition.transform.position, 0.2f);
-    }
+        {
+        if (collision.gameObject.tag == "Platform")
+        {
+            Debug.Log("¥Í¿Ω");
+
+            this.transform.Translate(Vector2.up * 0.5f * Time.deltaTime);
+          transform.position = Vector3.Slerp(gameObject.transform.position, targetPosition.transform.position, 0.1f);
+
+            
+        }
+     }
+    
+   
+
 }
 
-    
+
 
