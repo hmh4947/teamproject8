@@ -8,6 +8,10 @@ TagManager:
   - jump
   - Enemy
   - Floor
+  - perfectScore
+  - ArrowBox
+  - note
+  - Goal
   layers:
   - Default
   - TransparentFX

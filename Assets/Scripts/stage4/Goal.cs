@@ -1,15 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class EnemyState : MonoBehaviour
+public class Goal : MonoBehaviour
 {
-    private bool state;
-    public GameObject Target;
     // Start is called before the first frame update
     void Start()
     {
-       
+        
     }
 
     // Update is called once per frame
@@ -19,10 +18,7 @@ public class EnemyState : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.tag=="Platform")
-        {
-            Target.SetActive(true);
-            state = true;
-        }
+        if (other.gameObject.tag == "Goal")
+            SceneManager.LoadScene("Stage4");
     }
 }
