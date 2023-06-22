@@ -9,8 +9,10 @@ public class stage1GameController : MonoBehaviour
     List<int> answerButtonList;
 
     public Text answerText;
-
-
+    public answerBlinking red;
+    public answerBlinking green;
+    public answerBlinking blue;
+    public answerBlinking yellow;
     int currentSequence;
     int currentMaxSequenceNumber;
     /* 
@@ -20,21 +22,18 @@ public class stage1GameController : MonoBehaviour
     2: blue
     3: yellow
     */
-
     // Start is called before the first frame update
     void Start()
     {
         currentSequence = 0;
         clickedButtonList = new List<int>();
         answerButtonList = new List<int>();
-
         setAnswerButtonSequence(10);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
     
     public void buttonClicked(int type){
@@ -51,6 +50,7 @@ public class stage1GameController : MonoBehaviour
             answerButtonList.Add(Random.Range(0,4));
         }
         updateTextUI();
+        StartCoroutine(showHint());
     }
 
     void compareListToAnswer(){
@@ -78,7 +78,6 @@ public class stage1GameController : MonoBehaviour
                 switch(currentType){
                     case 0: // red
                         answerText.text += "<color=red>R</color> ";
-                        Debug.Log(currentType);
                     break;
 
                     case 1: // greend
@@ -94,6 +93,32 @@ public class stage1GameController : MonoBehaviour
                     break;
                 }
             }
+        }        
+    }
+
+
+    IEnumerator showHint(){
+        for(int i=0 ; i < currentMaxSequenceNumber; ++i){
+           showBlinking(answerButtonList[i]);
+           Debug.Log("Blinking " + i + answerButtonList[i]);
+           yield return new WaitForSeconds(2f);
+        }
+    }
+
+    void showBlinking(int type){
+        switch(type){
+            case 0:
+                red.startBlinking();
+            break;
+            case 1:
+                green.startBlinking();
+            break;
+            case 2:
+                blue.startBlinking();
+            break;
+            case 3:
+                yellow.startBlinking();
+            break;
         }        
     }
 
