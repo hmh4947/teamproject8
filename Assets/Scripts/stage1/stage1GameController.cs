@@ -9,10 +9,7 @@ public class stage1GameController : MonoBehaviour
     List<int> answerButtonList;
 
     public Text answerText;
-    public answerBlinking red;
-    public answerBlinking green;
-    public answerBlinking blue;
-    public answerBlinking yellow;
+    public answerBlinking bulb;
     int currentSequence;
     int currentMaxSequenceNumber;
     /* 
@@ -106,20 +103,7 @@ public class stage1GameController : MonoBehaviour
     }
 
     void showBlinking(int type){
-        switch(type){
-            case 0:
-                red.startBlinking();
-            break;
-            case 1:
-                green.startBlinking();
-            break;
-            case 2:
-                blue.startBlinking();
-            break;
-            case 3:
-                yellow.startBlinking();
-            break;
-        }        
+        bulb.startBlinking(type);
     }
 
 

@@ -11,7 +11,7 @@ public class answerBlinking : MonoBehaviour
     void Start()
     {
         time = 0;
-        start = false;        
+        start = false;       
     }
 
     // Update is called once per frame
@@ -29,7 +29,21 @@ public class answerBlinking : MonoBehaviour
         if(start) time += Time.deltaTime;
     }
 
-    public void startBlinking() {
+    public void startBlinking(int type) {
+        switch(type){
+            case 0:
+                GetComponent<CanvasRenderer>().SetColor(Color.red);
+            break;
+            case 1:
+                GetComponent<CanvasRenderer>().SetColor(Color.green);
+            break;
+            case 2:
+                GetComponent<CanvasRenderer>().SetColor(Color.blue);
+            break;
+            case 3:
+                GetComponent<CanvasRenderer>().SetColor(Color.yellow);
+            break;
+        }
         start = true;
     }
 }
