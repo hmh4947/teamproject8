@@ -12,6 +12,8 @@ public class stage1GameController : MonoBehaviour
     public answerBlinking bulb;
     int currentSequence;
     int currentMaxSequenceNumber;
+
+    IEnumerator currCoroutine;
     /* 
     matching number in button list
     0: red
@@ -47,7 +49,8 @@ public class stage1GameController : MonoBehaviour
             answerButtonList.Add(Random.Range(0,4));
         }
         updateTextUI();
-        StartCoroutine(showHint());
+        currCoroutine = showHint();
+        StartCoroutine(currCoroutine);
     }
 
     void compareListToAnswer(){
@@ -58,6 +61,7 @@ public class stage1GameController : MonoBehaviour
         }else{
             //wrong
             Debug.Log("WRONG");
+            StopCoroutine(currCoroutine);
             setAnswerButtonSequence(10);            
         }
 
