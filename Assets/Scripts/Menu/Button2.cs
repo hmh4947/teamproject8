@@ -11,6 +11,7 @@ public class Button2 : MonoBehaviour
     public GameObject ButtonScreen5;
     public GameObject ButtonScreen6;
     public GameObject ButtonScreen7;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -26,18 +27,21 @@ public class Button2 : MonoBehaviour
 
     public void btn2()
     {
+        
             ButtonScreen2.SetActive(true);
             ButtonScreen3.SetActive(false);
             ButtonScreen4.SetActive(false);
             ButtonScreen5.SetActive(false);
             ButtonScreen6.SetActive(false);
             ButtonScreen7.SetActive(false);
+        
       
         
     }
         public void btn3()
         {
-            ButtonScreen2.SetActive(false);
+        
+             ButtonScreen2.SetActive(false);
             ButtonScreen3.SetActive(true);
             ButtonScreen4.SetActive(false);
             ButtonScreen5.SetActive(false);
@@ -47,7 +51,8 @@ public class Button2 : MonoBehaviour
         }
         public void btn4()
         {
-            ButtonScreen2.SetActive(false);
+      
+        ButtonScreen2.SetActive(false);
             ButtonScreen3.SetActive(false);
             ButtonScreen4.SetActive(true);
             ButtonScreen5.SetActive(false);

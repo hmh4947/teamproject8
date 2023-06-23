@@ -7,12 +7,13 @@ public class Player : MonoBehaviour
 {
     public float maxSpeed;
     public float jumpPower;
-    
-
+    public float runSpeed;
+    public float currentSpeed;
+    private bool walking = true;
     Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
     Animator anim;
-    bool isJumping = false;
+   // bool isJumping = false;
     // Start is called before the first frame update
     void Awake()
     {
@@ -25,7 +26,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-      
+        FixedUpdate();
         //Jump
         if (Input.GetButtonDown("Jump") && !anim.GetBool("isJumping"))
         {
@@ -47,23 +48,50 @@ public class Player : MonoBehaviour
         else
             anim.SetBool("isWalking", true);
     }
-
-
-    void FixedUpdate()
+    void Move()
     {
-        
         float h = Input.GetAxisRaw("Horizontal");
         rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
 
-        if (rigid.velocity.x > maxSpeed)//Right Max Speed
-            rigid.velocity = new Vector2(maxSpeed, rigid.velocity.y);
-        else if (rigid.velocity.x < maxSpeed * (-1))//Left Max Speed
-            rigid.velocity = new Vector2(maxSpeed * (-1), rigid.velocity.y);
+        if (rigid.velocity.x > currentSpeed)//Right Max Speed
+            rigid.velocity = new Vector2(currentSpeed, rigid.velocity.y);
+        else if (rigid.velocity.x < currentSpeed * (-1))//Left Max Speed
+            rigid.velocity = new Vector2(currentSpeed * (-1), rigid.velocity.y);
 
+
+    }
+
+    void FixedUpdate()
+    {
+        if ((Input.GetKeyDown(KeyCode.RightControl) ||
+               Input.GetKeyDown(KeyCode.LeftControl)))
+        {
+           if (walking)
+            {
+               
+                currentSpeed = runSpeed;
+                anim.SetBool("isRunning", true);
+                walking = false;
+           }
+           
+            else
+            {
+               
+                currentSpeed = maxSpeed;
+                anim.SetBool("isRunning", false);
+                walking = true;
+            }
+           
+        }
+
+        Move();
+
+        
+        
         if (rigid.velocity.y < 0 && anim.GetBool("isJumping"))
         {
             Debug.DrawRay(rigid.position, Vector3.down, new Color(0, 1, 0));
-            RaycastHit2D rayhit = Physics2D.Raycast(rigid.position, Vector3.down, 0.5f, LayerMask.GetMask("Floor"));
+            RaycastHit2D rayhit = Physics2D.Raycast(rigid.position, Vector3.down, 0.5f, LayerMask.GetMask("PlatForm"));
  
          if (rayhit.collider != null)
             {
