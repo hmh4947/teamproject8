@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class btn7No : MonoBehaviour
 {
+
     public GameObject ButtonScreen7;
+    
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -22,7 +24,7 @@ public class btn7No : MonoBehaviour
 
         ButtonScreen7.SetActive(false);
 
-
+      
 
     }
 }

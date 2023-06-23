@@ -475,7 +475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 2
+    m_Mode: -1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1759,6 +1759,7 @@ GameObject:
   - component: {fileID: 531520688}
   - component: {fileID: 531520687}
   - component: {fileID: 531520686}
+  - component: {fileID: 531520689}
   m_Layer: 5
   m_Name: Button5Canvas
   m_TagString: Untagged
@@ -1851,6 +1852,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &531520689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531520684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 280899ed7d3655a4ea00a505611f6723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &544495386
 GameObject:
   m_ObjectHideFlags: 0
@@ -3160,6 +3173,7 @@ GameObject:
   - component: {fileID: 951528351}
   - component: {fileID: 951528350}
   - component: {fileID: 951528349}
+  - component: {fileID: 951528352}
   m_Layer: 5
   m_Name: Button7Canvas
   m_TagString: Untagged
@@ -3252,6 +3266,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &951528352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951528347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 280899ed7d3655a4ea00a505611f6723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &957444097
 GameObject:
   m_ObjectHideFlags: 0
@@ -4412,7 +4438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: -1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -4442,7 +4468,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1402561528}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1402561525}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1402561528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4726,7 +4764,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1488570108
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4938,7 +4976,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1833501199}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1496870416
@@ -5007,7 +5045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 2
+    m_Mode: -1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -6461,6 +6499,7 @@ GameObject:
   - component: {fileID: 2041653628}
   - component: {fileID: 2041653627}
   - component: {fileID: 2041653626}
+  - component: {fileID: 2041653629}
   m_Layer: 5
   m_Name: Button6Canvas
   m_TagString: Untagged
@@ -6553,6 +6592,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &2041653629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041653624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 280899ed7d3655a4ea00a505611f6723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2043034413
 GameObject:
   m_ObjectHideFlags: 0
