@@ -83,5 +83,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
             SceneManager.LoadScene("Stage4");
+
+        
     }
 }
