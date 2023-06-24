@@ -7,6 +7,7 @@ public class gameController : MonoBehaviour
     
     public Text text;
     public Text combo;
+    public playerAnimationController playerAni;
     bouncyText comboText;
     int score = 0;
     int ArrowTimer = 70;
@@ -47,18 +48,22 @@ public class gameController : MonoBehaviour
             if(Input.GetKey(KeyCode.LeftArrow)){
                 LeftPressed = true;
                 anyKeyPressed = true;
+                playerAni.changeAni(0);
             }
             if(Input.GetKey(KeyCode.RightArrow)){
                 RightPressed = true;
                 anyKeyPressed = true;
+                playerAni.changeAni(1);
             }
             if(Input.GetKey(KeyCode.DownArrow)){
                 DownPressed = true;
                 anyKeyPressed = true;
+                playerAni.changeAni(2);
             }
             if(Input.GetKey(KeyCode.UpArrow)){
                 UpPressed = true;
                 anyKeyPressed = true;
+                playerAni.changeAni(3);
             }
         }
 

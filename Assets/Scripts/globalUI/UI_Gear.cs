@@ -9,11 +9,7 @@ public class UI_Gear : MonoBehaviour
     public Sprite gear0, gear1, gear2, gear3;
     void Start()
     {
-        //GetComponent<Image>().sprite.bounds.size.Set(gear0.bounds.size.x,gear0.bounds.size.y,gear0.bounds.size.z);
-        GetComponent<RectTransform>().sizeDelta = new Vector2(gear0.bounds.size.x*50,gear0.bounds.size.y*50);
-        GetComponent<RectTransform>().position.Set(825,470,0);
-        Debug.Log(gear0.bounds.size);
-        gameUIcontroller.currentGear = 0;
+        gameUIcontroller.currentGear = 1;
         switch(gameUIcontroller.currentGear){
             case 0:
             GetComponent<Image>().sprite = gear0;
@@ -33,6 +29,6 @@ public class UI_Gear : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+                
     }
 }
