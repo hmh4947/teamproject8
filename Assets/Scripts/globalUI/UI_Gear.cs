@@ -10,8 +10,8 @@ public class UI_Gear : MonoBehaviour
     void Start()
     {
         //GetComponent<Image>().sprite.bounds.size.Set(gear0.bounds.size.x,gear0.bounds.size.y,gear0.bounds.size.z);
-        GetComponent<RectTransform>().sizeDelta = new Vector2(gear0.bounds.size.x*22,gear0.bounds.size.y*22);
-        GetComponent<RectTransform>().position.Set(350,260,0);
+        GetComponent<RectTransform>().sizeDelta = new Vector2(gear0.bounds.size.x*50,gear0.bounds.size.y*50);
+        GetComponent<RectTransform>().position.Set(825,470,0);
         Debug.Log(gear0.bounds.size);
         gameUIcontroller.currentGear = 0;
         switch(gameUIcontroller.currentGear){
