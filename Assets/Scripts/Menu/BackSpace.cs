@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class BackSpace : MonoBehaviour
 {
+    bool isPause;
     int sceneIndex;
     // Start is called before the first frame update
     void Start()
     {
+        isPause = true;
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
@@ -17,7 +19,14 @@ public class BackSpace : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Backspace))
         {
-            SceneManager.LoadScene(sceneIndex - 1);
+            SceneManager.LoadScene(sceneIndex + 1);
+            if (isPause == true)
+            {
+                Time.timeScale = 1;
+                isPause = false;
+                return;
+
+            }
         }
     }
 }

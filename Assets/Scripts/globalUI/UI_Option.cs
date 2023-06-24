@@ -20,7 +20,7 @@ public class UI_Option : MonoBehaviour
     }
    public void option()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("Menu1");
         if (isPause == false)
         {
             Time.timeScale = 0;
@@ -30,5 +30,28 @@ public class UI_Option : MonoBehaviour
         }
         
     }
-    
+    public void option2()
+    {
+        SceneManager.LoadScene("Menu2");
+        if (isPause == false)
+        {
+            Time.timeScale = 0;
+            isPause = true;
+            return;
+
+        }
+
+    }
+    public void option3()
+    {
+        SceneManager.LoadScene("Menu3");
+        if (isPause == false)
+        {
+            Time.timeScale = 0;
+            isPause = true;
+            return;
+
+        }
+
+    }
 }
