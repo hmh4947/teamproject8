@@ -512,6 +512,7 @@ GameObject:
   - component: {fileID: 62781612}
   - component: {fileID: 62781611}
   - component: {fileID: 62781610}
+  - component: {fileID: 62781613}
   m_Layer: 5
   m_Name: Button6_1Canvas
   m_TagString: Untagged
@@ -603,6 +604,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &62781613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62781608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 280899ed7d3655a4ea00a505611f6723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &78835524
 GameObject:
   m_ObjectHideFlags: 0
@@ -1421,7 +1434,8 @@ MonoBehaviour:
   ButtonScreen3: {fileID: 568727718}
   ButtonScreen4: {fileID: 21553687}
   ButtonScreen5: {fileID: 42019260}
-  ButtonScreen6: {fileID: 204938380}
+  ButtonScreen6: {fileID: 62781608}
+  ButtonScreen6_1: {fileID: 1870438723}
   ButtonScreen7: {fileID: 635218644}
 --- !u!114 &308417150
 MonoBehaviour:
@@ -3291,6 +3305,7 @@ MonoBehaviour:
   ButtonScreen4: {fileID: 21553687}
   ButtonScreen5: {fileID: 42019260}
   ButtonScreen6: {fileID: 62781608}
+  ButtonScreen6_1: {fileID: 1870438723}
   ButtonScreen7: {fileID: 635218644}
 --- !u!114 &794041012
 MonoBehaviour:
@@ -3739,7 +3754,8 @@ MonoBehaviour:
   ButtonScreen3: {fileID: 568727718}
   ButtonScreen4: {fileID: 21553687}
   ButtonScreen5: {fileID: 42019260}
-  ButtonScreen6: {fileID: 204938380}
+  ButtonScreen6: {fileID: 62781608}
+  ButtonScreen6_1: {fileID: 1870438723}
   ButtonScreen7: {fileID: 635218644}
 --- !u!114 &881019017
 MonoBehaviour:
@@ -5097,7 +5113,8 @@ MonoBehaviour:
   ButtonScreen3: {fileID: 568727718}
   ButtonScreen4: {fileID: 21553687}
   ButtonScreen5: {fileID: 42019260}
-  ButtonScreen6: {fileID: 204938380}
+  ButtonScreen6: {fileID: 62781608}
+  ButtonScreen6_1: {fileID: 1870438723}
   ButtonScreen7: {fileID: 635218644}
 --- !u!114 &1183478805
 MonoBehaviour:
@@ -5982,7 +5999,8 @@ MonoBehaviour:
   ButtonScreen3: {fileID: 568727718}
   ButtonScreen4: {fileID: 21553687}
   ButtonScreen5: {fileID: 42019260}
-  ButtonScreen6: {fileID: 204938380}
+  ButtonScreen6: {fileID: 62781608}
+  ButtonScreen6_1: {fileID: 1870438723}
   ButtonScreen7: {fileID: 635218644}
 --- !u!114 &1300364582
 MonoBehaviour:
@@ -6877,7 +6895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1546447420}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1551215511
@@ -7440,7 +7458,8 @@ MonoBehaviour:
   ButtonScreen3: {fileID: 568727718}
   ButtonScreen4: {fileID: 21553687}
   ButtonScreen5: {fileID: 42019260}
-  ButtonScreen6: {fileID: 204938380}
+  ButtonScreen6: {fileID: 62781608}
+  ButtonScreen6_1: {fileID: 1870438723}
   ButtonScreen7: {fileID: 635218644}
 --- !u!114 &1668916803
 MonoBehaviour:
