@@ -18,13 +18,6 @@ public class MenuFalse : MonoBehaviour
         btn6 = GameObject.Find("Button6").GetComponent<Button>();
         btn7 = GameObject.Find("Button7").GetComponent<Button>();
 
-        btn1.interactable = false;
-        btn2.interactable = false;
-        btn3.interactable = false;
-        btn4.interactable = false;
-        btn5.interactable = false;
-        btn6.interactable = false;
-        btn7.interactable = false;
     }
    
     // Update is called once per frame
