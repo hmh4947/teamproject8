@@ -16,7 +16,7 @@ public class GameStart : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Return))
         {
-            Debug.Log("ÀüÈ¯");
+            Debug.Log("ï¿½ï¿½È¯");
             SceneManager.LoadScene("Menu");
         }
     }

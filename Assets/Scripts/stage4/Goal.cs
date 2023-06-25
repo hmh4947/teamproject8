@@ -8,7 +8,7 @@ public class Goal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameUIcontroller.currentGear = 3;
     }
 
     // Update is called once per frame

@@ -35,7 +35,7 @@ public class stage1GameController : MonoBehaviour
         answerButtonList = new List<int>();        
         answerText.gameObject.SetActive(isTest);
         Application.targetFrameRate = 60;
-        gameUIcontroller.currentGear = 1;
+        gameUIcontroller.currentGear = 0;
     }
 
     // Update is called once per frame
