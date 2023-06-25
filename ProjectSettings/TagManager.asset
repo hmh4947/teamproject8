@@ -12,6 +12,8 @@ TagManager:
   - ArrowBox
   - note
   - Goal
+  - Music
+  - Slider
   layers:
   - Default
   - TransparentFX
