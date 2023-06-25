@@ -19,6 +19,6 @@ public class Goal : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Goal")
-            SceneManager.LoadScene("Stage4");
+            SceneManager.LoadScene("GameClear");
     }
 }

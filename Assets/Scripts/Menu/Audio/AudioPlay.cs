@@ -20,10 +20,7 @@ public class AudioPlay : MonoBehaviour
         }
       
         audioSource = GetComponent<AudioSource>();
-        if(SceneManager.GetActiveScene().buildIndex==5)
-        {
-            Destroy(this.gameObject);
-        }
+       
 
        
     }
@@ -35,6 +32,8 @@ public class AudioPlay : MonoBehaviour
     // Update is called once per frame
     public void StopMusic()
     {
-        audioSource.Stop();
+       
+            audioSource.Stop();
+        
     }
 }
