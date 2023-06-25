@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioPlay : MonoBehaviour
 {
@@ -19,7 +20,10 @@ public class AudioPlay : MonoBehaviour
         }
       
         audioSource = GetComponent<AudioSource>();
-
+        if(SceneManager.GetActiveScene().buildIndex==3)
+        {
+            Destroy(this.gameObject);
+        }
 
        
     }
