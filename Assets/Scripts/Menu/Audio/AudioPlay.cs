@@ -20,7 +20,7 @@ public class AudioPlay : MonoBehaviour
         }
       
         audioSource = GetComponent<AudioSource>();
-        if(SceneManager.GetActiveScene().buildIndex==3)
+        if(SceneManager.GetActiveScene().buildIndex==5)
         {
             Destroy(this.gameObject);
         }
