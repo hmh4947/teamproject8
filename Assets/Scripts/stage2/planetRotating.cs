@@ -7,15 +7,16 @@ public class planetRotating : MonoBehaviour
     // Start is called before the first frame update
     float speed;
     RectTransform rectT;
+    gameController gameController;
     void Start()
     {
-        speed = 0.2f;
         rectT = GetComponent<RectTransform>();
+        gameController = FindObjectOfType<gameController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(new Vector3(0,0,speed));
+        transform.Rotate(new Vector3(0,0,Time.deltaTime*3*(float)gameController.getCombo()));
     }
 }

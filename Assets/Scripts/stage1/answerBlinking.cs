@@ -26,7 +26,7 @@ public class answerBlinking : MonoBehaviour
                  start = false;
              }
         }
-        if(start) time += Time.deltaTime;
+        if(start) time += Time.deltaTime*1.2f;
     }
 
     public void startBlinking(int type) {

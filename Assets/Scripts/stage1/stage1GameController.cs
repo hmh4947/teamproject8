@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class stage1GameController : MonoBehaviour
 {
@@ -12,8 +13,11 @@ public class stage1GameController : MonoBehaviour
     public answerBlinking bulb;
     int currentSequence;
     int currentMaxSequenceNumber;
+    int currentStageSequence;
 
     IEnumerator currCoroutine;
+    public bool isTest;
+    public UI_Clear clearUI;
     /* 
     matching number in button list
     0: red
@@ -24,10 +28,13 @@ public class stage1GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentStageSequence = 1;
         currentSequence = 0;
+        currentMaxSequenceNumber = 3;
         clickedButtonList = new List<int>();
-        answerButtonList = new List<int>();
-        setAnswerButtonSequence(10);
+        answerButtonList = new List<int>();        
+        answerText.gameObject.SetActive(isTest);
+        Application.targetFrameRate = 60;
     }
 
     // Update is called once per frame
@@ -35,6 +42,11 @@ public class stage1GameController : MonoBehaviour
     {
     }
     
+    public void gameStart(){
+        setAnswerButtonSequence(currentMaxSequenceNumber);
+    }
+
+    // check buttons is right or wrong
     public void buttonClicked(int type){
         if(currentMaxSequenceNumber == currentSequence) return;
         clickedButtonList.Add(type);
@@ -44,8 +56,7 @@ public class stage1GameController : MonoBehaviour
     void setAnswerButtonSequence(int sequenceNumber){
         reset();
         resetAnswer();
-        currentMaxSequenceNumber = sequenceNumber;
-        for(int i=0; i<sequenceNumber; ++i){
+        for(int i=0; i<currentMaxSequenceNumber; ++i){
             answerButtonList.Add(Random.Range(0,4));
         }
         updateTextUI();
@@ -62,10 +73,11 @@ public class stage1GameController : MonoBehaviour
             //wrong
             Debug.Log("WRONG");
             StopCoroutine(currCoroutine);
-            setAnswerButtonSequence(10);            
+            setAnswerButtonSequence(currentMaxSequenceNumber);            
         }
-
-        
+        if(currentSequence == currentMaxSequenceNumber){
+            clear();
+        }        
     }
 
     void updateTextUI(){
@@ -102,7 +114,7 @@ public class stage1GameController : MonoBehaviour
         for(int i=0 ; i < currentMaxSequenceNumber; ++i){
            showBlinking(answerButtonList[i]);
            Debug.Log("Blinking " + i + answerButtonList[i]);
-           yield return new WaitForSeconds(2f);
+           yield return new WaitForSeconds(1.2f);
         }
     }
 
@@ -119,5 +131,21 @@ public class stage1GameController : MonoBehaviour
 
     void resetAnswer(){
         answerButtonList.Clear();
+    }
+
+    void nextStage(){
+        SceneManager.LoadScene("Stage2");
+    }
+
+    void clear(){
+        currentStageSequence++;
+        StopCoroutine(currCoroutine);
+        if(currentStageSequence == 4){
+            clearUI.setPosCenter();
+            Invoke("nextStage",3);
+            return;
+        }
+        currentMaxSequenceNumber+= 3;        
+        setAnswerButtonSequence(currentMaxSequenceNumber);
     }
 }

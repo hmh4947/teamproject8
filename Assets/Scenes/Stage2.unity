@@ -156,6 +156,10 @@ MonoBehaviour:
   text: {fileID: 1981799179}
   combo: {fileID: 955916933}
   playerAni: {fileID: 1149112610}
+  left: {fileID: 1503620993}
+  down: {fileID: 796007936}
+  right: {fileID: 1309975333}
+  up: {fileID: 1420140495}
 --- !u!4 &17491348
 Transform:
   m_ObjectHideFlags: 0

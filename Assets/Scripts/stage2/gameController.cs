@@ -8,9 +8,13 @@ public class gameController : MonoBehaviour
     public Text text;
     public Text combo;
     public playerAnimationController playerAni;
+    public arrowMaker left;
+    public arrowMaker down;
+    public arrowMaker right;
+    public arrowMaker up;
     bouncyText comboText;
     int score = 0;
-    int ArrowTimer = 70;
+    float ArrowTimer = 30;
     int ArrowType = 0;
     int combos = 0;
     
@@ -24,7 +28,6 @@ public class gameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Application.targetFrameRate = 30;
         comboText = FindObjectOfType<bouncyText>();
         SetText();        
         gameUIcontroller.currentGear = 2;
@@ -34,9 +37,23 @@ public class gameController : MonoBehaviour
     void Update()
     {
         if(ArrowTimer > 0){
-            ArrowTimer -= 1;
+            ArrowTimer -= Time.deltaTime*12;
         }            
-        else if (ArrowTimer == 0){
+        else if (ArrowTimer < 0){
+            switch(ArrowType){
+                case 0:
+                left.SpawnArrow();
+                break;
+                case 1:
+                down.SpawnArrow();
+                break;
+                case 2:
+                right.SpawnArrow();
+                break;
+                case 3:
+                up.SpawnArrow();
+                break;
+            }
             resetTimer();
         }
         
@@ -72,7 +89,7 @@ public class gameController : MonoBehaviour
     }
 
     public void resetTimer() {
-        ArrowTimer = Random.Range(20,60);
+        ArrowTimer = Random.Range(20,30);
         ArrowType = Random.Range(0,4);
     }
 
@@ -127,7 +144,7 @@ public class gameController : MonoBehaviour
         
     }
 
-    public int getTimer() 
+    public float getTimer() 
     {
         return ArrowTimer;
     }
@@ -135,6 +152,8 @@ public class gameController : MonoBehaviour
     public int getArrowType(){
         return ArrowType;
     }
+
+    public int getCombo() {return combos;}
 
     public bool isLeftPressed() {return LeftPressed;}
     public bool isRightPressed() {return RightPressed;}
