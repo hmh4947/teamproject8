@@ -28,7 +28,6 @@ public class gameController : MonoBehaviour
         comboText = FindObjectOfType<bouncyText>();
         SetText();        
         gameUIcontroller.currentGear = 2;
-        gameUIcontroller.
     }
 
     // Update is called once per frame
