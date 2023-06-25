@@ -27,6 +27,8 @@ public class gameController : MonoBehaviour
         Application.targetFrameRate = 30;
         comboText = FindObjectOfType<bouncyText>();
         SetText();        
+        gameUIcontroller.currentGear = 2;
+        gameUIcontroller.
     }
 
     // Update is called once per frame
