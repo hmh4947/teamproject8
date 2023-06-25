@@ -11,7 +11,6 @@ public class Button2 : MonoBehaviour
     public GameObject ButtonScreen5;
     public GameObject ButtonScreen6;
     public GameObject ButtonScreen6_1;
-
     public GameObject ButtonScreen7;
 
 
@@ -86,7 +85,7 @@ public class Button2 : MonoBehaviour
         ButtonScreen6.SetActive(true);
         ButtonScreen7.SetActive(false);
         ButtonScreen6_1.SetActive(false);
-
+        Debug.Log("실행");
     }
     public void btn6_1()
     {
@@ -97,7 +96,7 @@ public class Button2 : MonoBehaviour
         ButtonScreen6.SetActive(false);
         ButtonScreen7.SetActive(false);
         ButtonScreen6_1.SetActive(true);
-
+        Debug.Log("실행");
     }
     public void btn61()
     {

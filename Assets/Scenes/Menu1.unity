@@ -2226,8 +2226,8 @@ MonoBehaviour:
   ButtonScreen3: {fileID: 1494098915}
   ButtonScreen4: {fileID: 709337820}
   ButtonScreen5: {fileID: 194566305}
-  ButtonScreen6: {fileID: 0}
-  ButtonScreen6_1: {fileID: 0}
+  ButtonScreen6: {fileID: 1850011996}
+  ButtonScreen6_1: {fileID: 264512932}
   ButtonScreen7: {fileID: 401469486}
 --- !u!114 &426055321
 MonoBehaviour:
@@ -3466,8 +3466,8 @@ MonoBehaviour:
   ButtonScreen3: {fileID: 1494098915}
   ButtonScreen4: {fileID: 709337820}
   ButtonScreen5: {fileID: 194566305}
-  ButtonScreen6: {fileID: 0}
-  ButtonScreen6_1: {fileID: 0}
+  ButtonScreen6: {fileID: 1850011996}
+  ButtonScreen6_1: {fileID: 264512932}
   ButtonScreen7: {fileID: 401469486}
 --- !u!114 &797050863
 MonoBehaviour:
@@ -4872,8 +4872,8 @@ MonoBehaviour:
   ButtonScreen3: {fileID: 1494098915}
   ButtonScreen4: {fileID: 709337820}
   ButtonScreen5: {fileID: 194566305}
-  ButtonScreen6: {fileID: 0}
-  ButtonScreen6_1: {fileID: 0}
+  ButtonScreen6: {fileID: 1850011996}
+  ButtonScreen6_1: {fileID: 264512932}
   ButtonScreen7: {fileID: 401469486}
 --- !u!114 &1172559959
 MonoBehaviour:
@@ -5025,8 +5025,8 @@ MonoBehaviour:
   ButtonScreen3: {fileID: 1494098915}
   ButtonScreen4: {fileID: 709337820}
   ButtonScreen5: {fileID: 194566305}
-  ButtonScreen6: {fileID: 0}
-  ButtonScreen6_1: {fileID: 0}
+  ButtonScreen6: {fileID: 1850011996}
+  ButtonScreen6_1: {fileID: 264512932}
   ButtonScreen7: {fileID: 401469486}
 --- !u!114 &1246715714
 MonoBehaviour:
@@ -6204,8 +6204,8 @@ MonoBehaviour:
   ButtonScreen3: {fileID: 1494098915}
   ButtonScreen4: {fileID: 709337820}
   ButtonScreen5: {fileID: 194566305}
-  ButtonScreen6: {fileID: 0}
-  ButtonScreen6_1: {fileID: 0}
+  ButtonScreen6: {fileID: 1850011996}
+  ButtonScreen6_1: {fileID: 264512932}
   ButtonScreen7: {fileID: 401469486}
 --- !u!114 &1494973309
 MonoBehaviour:
@@ -6432,8 +6432,8 @@ MonoBehaviour:
   ButtonScreen3: {fileID: 1494098915}
   ButtonScreen4: {fileID: 709337820}
   ButtonScreen5: {fileID: 194566305}
-  ButtonScreen6: {fileID: 0}
-  ButtonScreen6_1: {fileID: 0}
+  ButtonScreen6: {fileID: 1850011996}
+  ButtonScreen6_1: {fileID: 264512932}
   ButtonScreen7: {fileID: 401469486}
 --- !u!114 &1565112300
 MonoBehaviour:

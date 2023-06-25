@@ -54,4 +54,16 @@ public class UI_Option : MonoBehaviour
         }
 
     }
+    public void option4()
+    {
+        SceneManager.LoadScene("Menu4");
+        if (isPause == false)
+        {
+            Time.timeScale = 0;
+            isPause = true;
+            return;
+
+        }
+
+    }
 }
