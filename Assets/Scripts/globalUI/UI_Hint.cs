@@ -10,8 +10,6 @@ public class UI_Hint : MonoBehaviour
     void Start()
     {
         view = false;
-        rectT = GetComponent<RectTransform>();
-        rectT.position = new Vector2(0,0); 
         gameObject.SetActive(false);
     }
 
