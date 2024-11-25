@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-public class Button2 : MonoBehaviour
+using UnityEngine.SceneManagement;
+
+public class MenuBtn : MonoBehaviour
 {
     //  public static bool state=false;
+    public GameObject Menu;
     public GameObject ButtonScreen2;
     public GameObject ButtonScreen3;
     public GameObject ButtonScreen4;
@@ -25,8 +27,13 @@ public class Button2 : MonoBehaviour
     {
 
     }
-
-    public void btn2()
+    public void ReGameBtn()
+    {
+        SceneManager.LoadScene("Stage1");
+        Menu.SetActive(false);
+        
+    }
+    public void SoundBtn()
     {
 
         ButtonScreen2.SetActive(true);
@@ -41,7 +48,7 @@ public class Button2 : MonoBehaviour
 
 
     }
-    public void btn3()
+    public void KeyboardBtn()
     {
 
         ButtonScreen2.SetActive(false);
@@ -53,7 +60,7 @@ public class Button2 : MonoBehaviour
         ButtonScreen7.SetActive(false);
 
     }
-    public void btn4()
+    public void ScreenBtn()
     {
 
         ButtonScreen2.SetActive(false);
@@ -65,7 +72,7 @@ public class Button2 : MonoBehaviour
         ButtonScreen6_1.SetActive(false);
     }
 
-    public void btn5()
+    public void SaveBtn()
     {
         ButtonScreen2.SetActive(false);
         ButtonScreen3.SetActive(false);
@@ -76,7 +83,7 @@ public class Button2 : MonoBehaviour
         ButtonScreen6_1.SetActive(false);
 
     }
-    public void btn6()
+    public void LoadBtn()
     {
         ButtonScreen2.SetActive(false);
         ButtonScreen3.SetActive(false);
@@ -87,7 +94,7 @@ public class Button2 : MonoBehaviour
         ButtonScreen6_1.SetActive(false);
         Debug.Log("실행");
     }
-    public void btn6_1()
+    public void btn6_1Btn()
     {
         ButtonScreen2.SetActive(false);
         ButtonScreen3.SetActive(false);
@@ -98,7 +105,7 @@ public class Button2 : MonoBehaviour
         ButtonScreen6_1.SetActive(true);
         Debug.Log("실행");
     }
-    public void btn61()
+    public void btn61Btn()
     {
         ButtonScreen2.SetActive(false);
         ButtonScreen3.SetActive(false);
@@ -108,7 +115,7 @@ public class Button2 : MonoBehaviour
         ButtonScreen7.SetActive(false);
 
     }
-    public void btn7()
+    public void ExitBtn()
     {
         ButtonScreen2.SetActive(false);
         ButtonScreen3.SetActive(false);

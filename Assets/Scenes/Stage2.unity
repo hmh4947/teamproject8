@@ -1359,7 +1359,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1145536714}
         m_TargetAssemblyTypeName: UI_Option, Assembly-CSharp
-        m_MethodName: option2
+        m_MethodName: option
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
