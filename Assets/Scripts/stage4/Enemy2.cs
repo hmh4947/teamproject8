@@ -48,7 +48,7 @@ public class Enemy2 : MonoBehaviour
         
 
             this.transform.Translate(Vector2.up * 0.5f * Time.deltaTime);
-          transform.position = Vector3.Slerp(gameObject.transform.position, targetPosition.transform.position, 0.1f);
+            transform.position = Vector3.Slerp(gameObject.transform.position, targetPosition.transform.position, 0.1f);
 
             
         }

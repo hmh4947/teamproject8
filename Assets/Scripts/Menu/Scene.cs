@@ -17,7 +17,7 @@ public class Scene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Backspace))
+       /* if (Input.GetKey(KeyCode.Backspace))
         {
             SceneManager.LoadScene(sceneIndex - 1);
             if (isPause == true)
@@ -27,6 +27,6 @@ public class Scene : MonoBehaviour
                 return;
 
             }
-        }
+        }*/
     }
 }

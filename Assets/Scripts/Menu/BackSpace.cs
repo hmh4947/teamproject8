@@ -6,27 +6,33 @@ using UnityEngine.SceneManagement;
 public class BackSpace : MonoBehaviour
 {
     bool isPause;
-    int sceneIndex;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        isPause = true;
-        sceneIndex = SceneManager.GetActiveScene().buildIndex;
+     
     }
 
     // Update is called once per frame
-    void Update()
+    
+    public void BackSpaceBtn()
     {
-        if (Input.GetKey(KeyCode.Backspace))
+       
+        //옵션창을 닫음
+        SceneManagement.instance.gameObject.GetComponent<SceneManagement>().BackSpace();
+        //퍼즈 풀기    
+        isPause = false;
+        Time.timeScale = 1;
+        if (isPause == true)
         {
-            SceneManager.LoadScene(sceneIndex + 1);
-            if (isPause == true)
-            {
-                Time.timeScale = 1;
-                isPause = false;
-                return;
+           Time.timeScale = 0;
+           Debug.Log("Pause_false");
+           isPause = false;
+           return;
 
-            }
         }
+
+        
     }
 }

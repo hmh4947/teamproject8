@@ -16,7 +16,7 @@ public class GameStart : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Return))
         {
-            Debug.Log("��ȯ");
+        
             SceneManager.LoadScene("Menu");
         }
     }
