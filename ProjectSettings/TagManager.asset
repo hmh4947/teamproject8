@@ -14,16 +14,18 @@ TagManager:
   - Goal
   - Music
   - Slider
+  - Item
+  - Laser
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Platform
   - Water
   - UI
   - 
-  - 
-  - 
+  - ledge
+  - Enemy
   - 
   - 
   - 

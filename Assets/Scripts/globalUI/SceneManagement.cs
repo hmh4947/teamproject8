@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.PlasticSCM.Editor.WebApi;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,6 +16,7 @@ public class SceneManagement : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+       
         if (instance == null)
         {
             instance = this;
@@ -37,17 +39,21 @@ public class SceneManagement : MonoBehaviour
             return instance;
         }
     }
-
+    //Curr_Scene == scenes[0]À¸·Î 
     void Start()
     {
+       
+
         Debug.Log(SceneManager.GetActiveScene().name);
         Curr_Scene = SceneManager.GetActiveScene().name;
-
+       
     }
 
     // Update is called once per frame
     void Update()
     {
+        scenes[0] = Prev_Scene;
+        scenes[1] = Curr_Scene;
         if (Curr_Scene != SceneManager.GetActiveScene().name)
         {
             Prev_Scene = Curr_Scene;
@@ -74,4 +80,5 @@ public class SceneManagement : MonoBehaviour
     {
         GameManager.instance.gameObject.SetActive(false);
     }
+    
 }
