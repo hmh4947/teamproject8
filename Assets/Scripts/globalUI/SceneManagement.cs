@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.PlasticSCM.Editor.WebApi;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,9 +8,12 @@ public class SceneManagement : MonoBehaviour
 
     public List<string> scenes = new List<string>();
     public string Curr_Scene;
-    public string Prev_Scene;
+    private string Prev_Scene;
     private string temp;
     public static SceneManagement instance = null;
+
+
+   
     // Start is called before the first frame update
     void Awake()
     {
@@ -47,6 +48,7 @@ public class SceneManagement : MonoBehaviour
         Debug.Log(SceneManager.GetActiveScene().name);
         Curr_Scene = SceneManager.GetActiveScene().name;
        
+        
     }
 
     // Update is called once per frame
@@ -54,13 +56,12 @@ public class SceneManagement : MonoBehaviour
     {
         scenes[0] = Prev_Scene;
         scenes[1] = Curr_Scene;
-        if (Curr_Scene != SceneManager.GetActiveScene().name)
-        {
+       if (Curr_Scene != SceneManager.GetActiveScene().name)
+       {
             Prev_Scene = Curr_Scene;
             Curr_Scene = SceneManager.GetActiveScene().name;
          
-        }
-      
+       }
 
     }
   
@@ -78,7 +79,21 @@ public class SceneManagement : MonoBehaviour
     }
     public void BackSpace()
     {
-        GameManager.instance.gameObject.SetActive(false);
+        GameManager.getInstance().gameObject.SetActive(false);
     }
+    public string getCurrScene()
+    {
+       
+        return scenes[0];
+      
+    }
+    public void setCurrScene (string curr_scene)
+    {
+        
+     
+        Curr_Scene =curr_scene;
+    }
+
+   
     
 }

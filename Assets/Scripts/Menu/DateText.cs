@@ -10,6 +10,8 @@ public class DateText : MonoBehaviour
     public Text dateText;
     void Start()
     {
-        dateText.text = DateTime.Now.ToString("yyyy/MM/dd/mm:ss");
+        //dateText.text = DateTime.Now.ToString("yyyy/MM/dd/mm:ss");
+
     }
+   
 }

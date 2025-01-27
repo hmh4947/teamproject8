@@ -25,7 +25,7 @@ public class UI_Option : MonoBehaviour
 
     public void option()
     {
-        GameManager.instance.gameObject.SetActive(true);
+        GameManager.getInstance().gameObject.SetActive(true);
         SceneManagement.instance.gameObject.GetComponent<SceneManagement>().Option();
         isPause = true;
         Time.timeScale = 0;
