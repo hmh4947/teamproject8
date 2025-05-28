@@ -17,7 +17,7 @@ public class Select : MonoBehaviour
     private int count;
     public int num=0;
     public string Scenename;
-
+    public GameObject saveOption;
    
 
     //æ¿ ¿Ã∏ß ¡§∫∏ 
@@ -224,7 +224,7 @@ public class Select : MonoBehaviour
         CountSlot(0);
         DataManager.instance.LoadData();
         SortSlot();
-
+        saveOption.SetActive(false);
 
 
     }

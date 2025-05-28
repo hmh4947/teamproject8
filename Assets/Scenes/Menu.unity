@@ -146,6 +146,7 @@ MonoBehaviour:
   - {fileID: 1885431217284644109}
   num: 0
   Scenename: 
+  saveOption: {fileID: 1885431217284644110}
 --- !u!114 &250036801 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4126676368851613940, guid: 6fe415a09d315c94daf301795a0953c2, type: 3}
@@ -412,7 +413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1885431215701616797, guid: 8137c045f95bd2241b19c0bcda9da0ed, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1885431215757995301, guid: 8137c045f95bd2241b19c0bcda9da0ed, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -552,7 +553,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1885431216461014800, guid: 8137c045f95bd2241b19c0bcda9da0ed, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1885431216461014800, guid: 8137c045f95bd2241b19c0bcda9da0ed, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -561,7 +562,7 @@ PrefabInstance:
     - target: {fileID: 1885431216461014800, guid: 8137c045f95bd2241b19c0bcda9da0ed, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1016445259}
+      objectReference: {fileID: 1885431217284644121}
     - target: {fileID: 1885431216461014800, guid: 8137c045f95bd2241b19c0bcda9da0ed, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -576,7 +577,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1885431216461014800, guid: 8137c045f95bd2241b19c0bcda9da0ed, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SaveData
+      value: set_enabled
       objectReference: {fileID: 0}
     - target: {fileID: 1885431216461014800, guid: 8137c045f95bd2241b19c0bcda9da0ed, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -584,7 +585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1885431216461014800, guid: 8137c045f95bd2241b19c0bcda9da0ed, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: DataManager, Assembly-CSharp
+      value: UnityEngine.Behaviour, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1885431216461014800, guid: 8137c045f95bd2241b19c0bcda9da0ed, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
@@ -1314,6 +1315,7 @@ MonoBehaviour:
   - {fileID: 1885431217284644109}
   num: 0
   Scenename: 
+  saveOption: {fileID: 1885431217284644110}
 --- !u!114 &1885431217284644119 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2638974262438514607, guid: 8137c045f95bd2241b19c0bcda9da0ed, type: 3}
@@ -1330,6 +1332,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1885431216942162304, guid: 8137c045f95bd2241b19c0bcda9da0ed, type: 3}
   m_PrefabInstance: {fileID: 1885431217284644101}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1885431217284644121 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1885431216461014800, guid: 8137c045f95bd2241b19c0bcda9da0ed, type: 3}
+  m_PrefabInstance: {fileID: 1885431217284644101}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57709840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1885431217284644122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1348,6 +1361,7 @@ MonoBehaviour:
   - {fileID: 1885431217284644109}
   num: 2
   Scenename: 
+  saveOption: {fileID: 1885431217284644110}
 --- !u!114 &1885431217284644123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1366,6 +1380,7 @@ MonoBehaviour:
   - {fileID: 1885431217284644109}
   num: 1
   Scenename: 
+  saveOption: {fileID: 1885431217284644110}
 --- !u!1001 &4126676368685628085
 PrefabInstance:
   m_ObjectHideFlags: 0
