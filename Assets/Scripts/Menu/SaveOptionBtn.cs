@@ -84,9 +84,7 @@ public class SaveOptionBtn : MonoBehaviour
         
         Debug.Log(saveData.SavePoint + "가져오기 성공");
 
-        //저장한 날짜 저장
-      //  dateText.text = DateTime.Now.ToString("yyyy/MM/dd/mm:ss");
-       // DateText = dateText.text;
+  
 
         Debug.Log( saveData.SavePoint + "저장");
 
@@ -98,110 +96,16 @@ public class SaveOptionBtn : MonoBehaviour
         {
             //큐에 저장
             objectQueue.Enqueue(saveData);
-          //  objectQueue.Enqueue(saveData);
+ 
             Debug.Log(objectQueue.Peek() + "Queue");
         }
-      //  else
-        {
-            //가장 오래된 저장파일 삭제 후 새 저장을 추가
-         //   objectQueue.Dequeue();
-           // objectQueue.Enqueue(saveData);
-
-            // objectQueue.Enqueue(save1);
-        }
+    
     }
     //게임 불러오기
     public void GameLoad()
     {
-        //  SceneManager.LoadScene(SceneManagement.instance.getCurrScene());
-
+        
         SceneManagement.instance.gameObject.GetComponent<SceneManagement>().BackSpace();
 
     }
 }
-/*public class SaveOptionBtn : MonoBehaviour
-{
-    public GameObject SaveOptionCanvas;
-    public GameObject save1;
-    public GameObject save2;
-    public GameObject save3;
-    public string SavePoint;
-    public string DateText;
-    // public SaveData save1;
-    // public SaveData save2;
-    // public SaveData save3;
-
-    public Text dateText;
-
-
-  //  public Queue<SaveData> objectQueue;
-    public Queue<string> objectQueue;
-
-    void Start()
-    {   
-        //큐 선언
-       // objectQueue = new Queue<SaveData>();
-
-        //큐 선언
-        objectQueue = new Queue<string>();
-
-
-        Debug.Log("컴포넌트 가져옴");
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    //게임 저장
-    public void GameSave()
-    {
-
-        //이전 씬(마지막으로 머물렀던 스테이지) 데이터 저장 
-        PlayerPrefs.SetString("SaveScene", SceneManagement.instance.getCurrScene());
-        PlayerPrefs.Save();
-
-        //데이터 저장(씬 이름, 저장 날짜)
-        SavePoint = SceneManagement.instance.getCurrScene();
-
-
-        Debug.Log(SavePoint + "가져오기 성공");
-
-        //저장한 날짜 저장
-        dateText.text = DateTime.Now.ToString("yyyy/MM/dd/mm:ss");
-        DateText = dateText.text;
-
-        Debug.Log(SavePoint + "저장");
-
-        //저장하고 창 닫기
-        SaveOptionCanvas.SetActive(false);
-
-        //최대 3개까지 저장 가능
-        if (objectQueue.Count < 3)
-        {
-            //큐에 저장
-            objectQueue.Enqueue(SceneManagement.instance.getCurrScene());
-          //  objectQueue.Enqueue(save1);
-            Debug.Log(objectQueue.Peek() + "Queue");
-        }
-        else
-        {
-            //가장 오래된 저장파일 삭제 후 새 저장을 추가
-            objectQueue.Dequeue();
-             objectQueue.Enqueue(SceneManagement.instance.getCurrScene());
-
-           // objectQueue.Enqueue(save1);
-        }
-    }
-    //게임 불러오기
-    public void GameLoad()
-    {
-      //  SceneManager.LoadScene(SceneManagement.instance.getCurrScene());
-
-        SceneManagement.instance.gameObject.GetComponent<SceneManagement>().BackSpace();
-
-    }
-}*/

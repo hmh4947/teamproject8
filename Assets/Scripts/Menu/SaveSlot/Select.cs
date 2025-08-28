@@ -18,7 +18,7 @@ public class Select : MonoBehaviour
     public int num=0;
     public string Scenename;
     public GameObject saveOption;
-   
+    private int dataCount=0;
 
     //씬 이름 정보 
     private string Nowname;
@@ -41,7 +41,7 @@ public class Select : MonoBehaviour
             //데이터가 있는경우
             if (File.Exists(DataManager.instance.path + $"{i}"))
             {
-                Debug.Log("데이터가 있음");
+              
                 //true로 변환
                 savefile[i] = true;
                 //선택한 슬롯 번호 저장
@@ -90,8 +90,7 @@ public class Select : MonoBehaviour
     }
 
 
-    //큐로 관리하기
-
+   
     //현재 데이터를 받아오기
     public void NowData()
     {
@@ -118,7 +117,7 @@ public class Select : MonoBehaviour
         DataManager.instance.SaveData();
     }
     //저장될 Slot 위치를 결정
-    public void CountSlot(int dataCount)
+    public void CountSlot()
     {
         Debug.Log("카운트: " + count);
         for (int i = 0; i < 3; i++)
@@ -136,7 +135,7 @@ public class Select : MonoBehaviour
 
             }
             //데이터가 없다면 저장
-            else
+            if (!File.Exists(DataManager.instance.path + $"{i}"))
             { //현재 데이터를 받아오기
                 NowData();
                 //데이터 설정
@@ -144,22 +143,19 @@ public class Select : MonoBehaviour
                 break;
             }
         }
-
-        //데이터 수 카운트가 3이상이라면 비어있는 배열이 없음
-        //덮어쓰기
+        Debug.Log("dataCount: " + dataCount);
+        //데이터 수 카운트가 3이상이라면 비어있는 배열이 없기에 덮어쓰기
         if (dataCount >= 3)
         {
-           
-            dataCount = 0;
+            Debug.Log("ㅇㅁㄹㄹㅇㅁ" );
+
             NowData();
             SetData(Nowname, Nowdate, Nowcount);
-            //오래된 저장본 삭제
+       
             DataManager.instance.SaveData();
 
-            
-           
-            
         }
+        dataCount=0;
         count++;
       
         //count를 늘려줌
@@ -215,15 +211,13 @@ public class Select : MonoBehaviour
 
        //정렬된 순서대로 슬롯에 넣기
     }
+ 
     public void Print()
-    {   //현재 데이터를 받아오기
-        //NowData();
-        //데이터 설정
-       // SetData(Nowname, Nowdate, Nowcount);
-        
-        CountSlot(0);
+    {  
+        CountSlot();
+      
         DataManager.instance.LoadData();
-        SortSlot();
+       // SortSlot();
         saveOption.SetActive(false);
 
 

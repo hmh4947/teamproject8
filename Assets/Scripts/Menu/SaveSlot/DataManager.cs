@@ -53,10 +53,37 @@ public class DataManager : MonoBehaviour
     private void Start()
     {
         DataQueue=new Queue<string>();
+       
+    }
+    public int GetOldestSlotIndex()
+    {
+        DateTime oldest = DateTime.MaxValue;
+        int oldestIndex = 0;
+
+        for (int i = 0; i < 3; i++)
+        {
+            string filePath = Path.Combine(path, $"save{i}.json");
+            if (File.Exists(filePath))
+            {
+                string json = File.ReadAllText(filePath);
+                PlayerData temp = JsonUtility.FromJson<PlayerData>(json);
+                DateTime date = DateTime.ParseExact(temp.date, "yyyy/MM/dd/HH:mm:ss", null);
+
+                if (date < oldest)
+                {
+                    oldest = date;
+                    oldestIndex = i;
+                }
+            }
+        }
+        Debug.Log("oldestIndex: " + oldestIndex);
+        return oldestIndex;
     }
 
     public void SaveData()
     {
+        int oldSlot=GetOldestSlotIndex();
+
         string data = JsonUtility.ToJson(nowPlayer);
         if (CountQ < 3)
         {
@@ -69,19 +96,17 @@ public class DataManager : MonoBehaviour
         }
         else
         {
-            // obj.GetComponent<Select>().NowData();
 
             //오래된 저장본 삭제
 
-            int deleteCount = nowPlayer.count % 3;
-;           DataQueue.Dequeue();
+            int deleteCount = oldSlot;
+            DataQueue.Dequeue();
             File.Delete(path + deleteCount.ToString());
-            Debug.Log("nowPlayer.count: " + nowPlayer.count);
-            Debug.Log("deleteCount: " + deleteCount);
+      
             //새로운 저장본 삽입
             //삭제된 save+카운트 이름으로 파일생성
             File.WriteAllText(path + deleteCount.ToString(), data);
-             Debug.Log("data: " + data);
+            Debug.Log("data: " + data);
            
             DataQueue.Enqueue(data);
         
