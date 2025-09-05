@@ -21,16 +21,12 @@ public class DataManager : MonoBehaviour
     public PlayerData nowPlayer=new PlayerData();
     public string path;
     public int nowSlot;
-    public int deleteSlot;
-
-    public Queue<string> DataQueue;
-    public int CountQ=0;
 
     private DateTime dateText1;
     private DateTime dateText2;
     private DateTime dateText3;
-    public GameObject obj;
-    public DateTime[] array = new DateTime[3];
+
+   // public DateTime[] array = new DateTime[3];
 
 
             
@@ -47,14 +43,44 @@ public class DataManager : MonoBehaviour
         }
         DontDestroyOnLoad(this.gameObject);
         path = Application.persistentDataPath+"/save";
-     
+        if (!Directory.Exists(path))
+        {
+            Directory.CreateDirectory(path);
+            Debug.Log("저장 경로 생성: " + path);
+        }
     }
 
     private void Start()
     {
-        DataQueue=new Queue<string>();
+        
        
     }
+    public int FindSaveSlot(string sceneName, string date, int count)
+    {
+        nowPlayer.sceneIndex = sceneName;
+        nowPlayer.date = date;
+        nowPlayer.count = count;
+
+        // 빈 슬롯 찾기
+        for (int i = 0; i < 3; i++)
+        {
+            string p = Path.Combine(path, $"save{i}.json");
+            if (!File.Exists(p))
+            {
+                nowSlot = i;
+                SaveData();
+                //빈 슬롯 찾으면 슬롯번호 반환
+                return i;
+            }
+        }
+
+        // 다 찼으면 오래된 슬롯
+        nowSlot = GetOldestSlotIndex();
+        SaveData();
+        return nowSlot;
+    }
+    
+    //오래된 시간의 슬롯 찾기
     public int GetOldestSlotIndex()
     {
         DateTime oldest = DateTime.MaxValue;
@@ -76,63 +102,31 @@ public class DataManager : MonoBehaviour
                 }
             }
         }
-        Debug.Log("oldestIndex: " + oldestIndex);
+   
         return oldestIndex;
     }
 
     public void SaveData()
     {
-        int oldSlot=GetOldestSlotIndex();
+        if (!Directory.Exists(path)) Directory.CreateDirectory(path);
+        if (string.IsNullOrEmpty(nowPlayer.date))
+            nowPlayer.date = DateTime.Now.ToString("yyyy/MM/dd/HH:mm:ss");
 
-        string data = JsonUtility.ToJson(nowPlayer);
-        if (CountQ < 3)
-        {
-            
-            File.WriteAllText(path + nowSlot.ToString(), data);
-            Debug.Log("저장");
-            //큐에 객체를 넣음
-            DataQueue.Enqueue(data);
-            CountQ++;
-        }
-        else
-        {
-
-            //오래된 저장본 삭제
-
-            int deleteCount = oldSlot;
-            DataQueue.Dequeue();
-            File.Delete(path + deleteCount.ToString());
-      
-            //새로운 저장본 삽입
-            //삭제된 save+카운트 이름으로 파일생성
-            File.WriteAllText(path + deleteCount.ToString(), data);
-            Debug.Log("data: " + data);
-           
-            DataQueue.Enqueue(data);
-        
-
-
-        }
+        string filePath = Path.Combine(path, $"save{nowSlot}.json"); 
+        string data = JsonUtility.ToJson(nowPlayer, true);
+        File.WriteAllText(filePath, data);
 
     }
    
-    public void LoadData()
-    {
-        string data=File.ReadAllText(path+ nowSlot.ToString());
-        nowPlayer=JsonUtility.FromJson<PlayerData>(data);
-       
-    }
+
     public void LoadDataSlot(int i)
     {
-        string data = File.ReadAllText(path + i.ToString());
+        string filePath = Path.Combine(path, $"save{i}.json");
+        string data = File.ReadAllText(filePath);
         nowPlayer = JsonUtility.FromJson<PlayerData>(data);
 
     }
-    // Update is called once per frame
-    public void DataClear()
-    {
-        nowSlot = -1;
-        nowPlayer = new PlayerData();
-    }
+  
+
 
 }

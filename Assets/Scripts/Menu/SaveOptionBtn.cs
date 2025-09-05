@@ -14,7 +14,6 @@ public struct SaveData
 public class SaveOptionBtn : MonoBehaviour
 {
     public GameObject SaveOptionCanvas;
-   // public Text dateText;
 
     public SaveData saveData;
 
@@ -46,13 +45,10 @@ public class SaveOptionBtn : MonoBehaviour
         //인스턴스 생성
 
         Instance = Instantiate(SavePrefeb, new Vector2(1200, 700), Quaternion.identity);
-
-        //인스턴스 부모 설정
         Instance.transform.parent=GameManager.Instance.transform;
         Instance.SetActive(false);
         //인스턴스의 위치를 Button6_1Canvas에서 생성
 
-        //Instance.transform.parent = GameObject.Find("Button6_1Canvas").transform;
         if (GameManager.Instance != null)
         {
             Debug.Log("null 이 아님");
@@ -91,14 +87,11 @@ public class SaveOptionBtn : MonoBehaviour
         //저장하고 창 닫기
         SaveOptionCanvas.SetActive(false);
 
-        //최대 3개까지 저장 가능
-      // if (objectQueue.Count < 3)
-        {
-            //큐에 저장
-            objectQueue.Enqueue(saveData);
+        //큐에 저장
+        objectQueue.Enqueue(saveData);
  
-            Debug.Log(objectQueue.Peek() + "Queue");
-        }
+
+        
     
     }
     //게임 불러오기
