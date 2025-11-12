@@ -9,10 +9,10 @@ using System;
 
 public class PlayerData
 {
-    public string sceneIndex;
+    public string sceneName;
     public string date;
     //Ä«¿îÆ® ¼¼±â
-    public int count;
+   // public int count;
 }
 public class DataManager : MonoBehaviour
 {
@@ -55,11 +55,11 @@ public class DataManager : MonoBehaviour
         
        
     }
-    public int FindSaveSlot(string sceneName, string date, int count)
+    public int FindSaveSlot(string sceneName, string date)
     {
-        nowPlayer.sceneIndex = sceneName;
+        nowPlayer.sceneName = sceneName;
         nowPlayer.date = date;
-        nowPlayer.count = count;
+       // nowPlayer.count = count;
 
         // ºó ½½·Ô Ã£±â
         for (int i = 0; i < 3; i++)

@@ -40,7 +40,6 @@ public class SceneManagement : MonoBehaviour
             return instance;
         }
     }
-    //Curr_Scene == scenes[0]À¸·Î 
     void Start()
     {
        
