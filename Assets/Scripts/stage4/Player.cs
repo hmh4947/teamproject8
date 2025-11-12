@@ -1,11 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.UIElements;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Player : MonoBehaviour
 {
+    public enum PlayerState
+    {
+        Idle,
+        Walk,
+        Run,
+        Jump
+
+    }
     public float maxSpeed;
     public float jumpPower;
     public float runSpeed;
@@ -13,14 +23,19 @@ public class Player : MonoBehaviour
     private bool walking = true;
     public Transform PlayerT;
     public GameObject LaserObj;
-    Rigidbody2D rigid;
-    SpriteRenderer spriteRenderer;
-    Animator anim;
-    public float LaserDistance = 2.0f;
+    public Rigidbody2D rigid;
+    public SpriteRenderer spriteRenderer;
+    public Animator anim;
+    public float LaserDistance = 5.0f;
     private GameManager InstantiateObj;
     public GameObject PlayerObj;
     public Transform EnemyT;
-   
+    public bool runToggle;
+    private bool isUpateLaser=false;
+
+    private GameObject _laser;
+    private Camera _cam;
+    public StateMachine<Player> stateMachine{ get; private set; }
 
 
     void Awake()
@@ -28,126 +43,42 @@ public class Player : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-       
-       
+        stateMachine = new StateMachine<Player>(this, new Idle());
+        _cam = Camera.main;
     }
 
     void Update()
     {
-       
-        FixedUpdate();
-       
-        //Jump
-        if (Input.GetButtonDown("Jump") && !anim.GetBool("isJumping"))
+        if(Input.GetKeyDown(KeyCode.LeftControl))
         {
-            rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-            anim.SetBool("isJumping", true);
-        }
-        
-        //Stop Speed
-        if (Input.GetButtonUp("Horizontal"))
-            rigid.velocity = new Vector2(rigid.velocity.normalized.x * 0.5f, rigid.velocity.y);
-            
-        //Directoin sprite
-        if (Input.GetButton("Horizontal"))
-        {
-            spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == -1;
-            if (Input.GetAxisRaw("Horizontal") == -1 && PlayerObj != null) 
-            {
-                PlayerObj.transform.position = new Vector3(PlayerT.position.x - LaserDistance, PlayerT.position.y);
+            runToggle = !runToggle;
+        }    
+        stateMachine.DoOperateUpdate();
 
-                Debug.Log("왼쪽");
-            }
-            if (Input.GetAxisRaw("Horizontal") == 1 && PlayerObj != null)
-            {
-                PlayerObj.transform.position = new Vector3(PlayerT.position.x + LaserDistance, PlayerT.position.y);
-            
-                Debug.Log("오른쪽");
-            }
-           
-        }
-
-     
-          
-
-
-        if (Mathf.Abs(rigid.velocity.x) < 0.1)
-            anim.SetBool("isWalking", false);
-        else
-            anim.SetBool("isWalking", true);
-
-       
+        if (isUpateLaser) { DrawLaser();}
 
     }
-    void Move()
-    {
-        float h = Input.GetAxisRaw("Horizontal");
-        rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
+   
 
-        //Right Max Speed
-        if (rigid.velocity.x > currentSpeed)
-            rigid.velocity = new Vector2(currentSpeed, rigid.velocity.y);
-
-        //Left Max Speed
-        else if (rigid.velocity.x < currentSpeed * (-1))
-            rigid.velocity = new Vector2(currentSpeed * (-1), rigid.velocity.y);
-
-
-    }
-
-    void FixedUpdate()
-    {
-        Move();
-
-        if ((Input.GetKeyDown(KeyCode.RightControl) ||
-               Input.GetKeyDown(KeyCode.LeftControl)))
-        {
-           if (walking)
-            {
-               
-                currentSpeed = runSpeed;
-                anim.SetBool("isRunning", true);
-                walking = false;
-           }
-           
-            else
-            {
-               
-                currentSpeed = maxSpeed;
-                anim.SetBool("isRunning", false);
-                walking = true;
-            }
-           
-        }
-
-        //Landing Platform
-
-       
-        if (rigid.velocity.y < 0)
-        {
-            Debug.DrawRay(rigid.position, Vector2.down, new Color(0, 1, 0));
-            RaycastHit2D rayhit = Physics2D.Raycast(rigid.position, Vector2.down, 0.5f, LayerMask.GetMask("PlatForm"));
-            if (anim.GetBool("isJumping"))
-            { 
-               
-                if (rayhit.collider != null)
-                {
-                    if (rayhit.distance < 0.5f)
-                    {
-                        anim.SetBool("isJumping", false);
-                        Debug.Log(rayhit.collider.name);
-                    }
-                }
-               
-            }
-            anim.SetBool("isJumping", false);
-        }
-
-       
-    }
-
-
+   
     
+    public bool IsGrounded()
+    {
+        
+
+        RaycastHit2D rayhit = Physics2D.Raycast(
+            rigid.position,
+            Vector2.down,
+            1.0f,
+            LayerMask.GetMask("Platform")
+        );
+
+        Debug.DrawRay(rigid.position, Vector2.down *1.0f, Color.green);
+
+        return rayhit.collider != null && rayhit.distance <1.0f;
+    }
+
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         IHealth health = gameObject.GetComponent<IHealth>();
@@ -171,31 +102,69 @@ public class Player : MonoBehaviour
         if (item != null)
         {
            item.TakeItem();
-           EnemyT.GetComponent<EnemyController>().target=LaserObj.transform;
-           DrawLaser();
-           Debug.Log("충돌");
+            EnemyController enemy = EnemyT.GetComponent<EnemyController>();
+            if (enemy != null && _laser != null)
+            {
+                enemy.SetLaserTarget(_laser.transform);
+                
+                Debug.Log("충돌");
+            }
+            // DrawLaser();
+            isUpateLaser = true;
         }
         
     }
-
+    public GameObject getLaser() {  return _laser; }
     void DrawLaser()
     {
-     
-        
-        if(spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == 1)
+
+        if (_cam == null || PlayerT == null || LaserObj == null) return;
+
+  
+        Vector3 mousePos = Input.mousePosition;
+        if (!_cam.orthographic)
         {
-            PlayerObj=Instantiate(LaserObj, new Vector2(PlayerT.position.x + LaserDistance, PlayerT.position.y), Quaternion.identity);
-            //부모를 Player로 설정
-            PlayerObj.transform.parent=gameObject.transform;
-            Debug.Log("오른쪽");
+            float depth = Mathf.Abs(_cam.transform.position.z - PlayerT.position.z);
+            mousePos.z = depth;
         }
         else
         {
-            PlayerObj = Instantiate(LaserObj, new Vector2(PlayerT.position.x - LaserDistance, PlayerT.position.y), Quaternion.identity);
-            PlayerObj.transform.parent = gameObject.transform;
-            Debug.Log("왼쪽");
+       
+            mousePos.z = Mathf.Abs(_cam.transform.position.z - PlayerT.position.z);
         }
+
+        Vector3 worldMouse = _cam.ScreenToWorldPoint(mousePos);
+        worldMouse.z = PlayerT.position.z;
+
+        // 2) 방향 & 거리 제한
+        Vector3 dir = worldMouse - PlayerT.position;
+        if (dir.sqrMagnitude > LaserDistance * LaserDistance)
+            dir = dir.normalized * LaserDistance;
+
+        Vector3 targetPos = PlayerT.position + dir;
+
+        //처음 한 번만 생성, 이후 위치/회전 갱신
+      
+        if (_laser == null)
+        {
+            _laser = Instantiate(LaserObj, targetPos, Quaternion.identity);
+            _laser.tag = "Laser";
+            _laser.transform.SetParent(null, true);
+            EnemyController enemy = FindObjectOfType<EnemyController>();
+            if(enemy != null)
+               {
+                enemy.SetLaserTarget(_laser.transform);
+            }
+        }
+        _laser.transform.position = targetPos;
+
+        // 마우스 방향으로 회전
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        _laser.transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
-   
-    
 }
+
+
+
+
+

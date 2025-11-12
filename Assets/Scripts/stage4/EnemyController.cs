@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Assertions;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class EnemyController : MonoBehaviour
 {
@@ -18,8 +19,8 @@ public class EnemyController : MonoBehaviour
     public Vector2 EnemyInitPos;
     private Transform enemyPos;
     public GameObject Laser;
-    private bool isChase=false;
-
+    public bool isChase=false;
+    public float moveSpeed=1.0f;
     
 
     void Start()
@@ -36,31 +37,20 @@ public class EnemyController : MonoBehaviour
    
     void Update()
     {
-
-        if (target.name == ("Laser") && isChase)
+       
+        if (isChase)
         {
-            GameObject PlayerObj = GameObject.Find("Player");
-            if(PlayerObj != null)
+
+
+            if (target.CompareTag("Laser"))
             {
-                Transform LaserObj = PlayerObj.transform.Find("Laser(Clone)");
-                if (LaserObj!=null)
-                {
-                    Test testCs = LaserObj.GetComponent<Test>();
-                    if(testCs != null)
-                    {
-                        Debug.Log("target: Laser" + testCs.LaserT);
-                        Enemy.transform.position = Vector2.MoveTowards(Enemy.transform.position, testCs.LaserT, Time.deltaTime * 7f);
-                    }
-
-                }
-                else
-                {
-                   Debug.Log("없음" );
-                }
-
+                transform.position = Vector2.MoveTowards(transform.position, target.position, Time.deltaTime * moveSpeed);
             }
-           
-           
+            else if (target.CompareTag("Player"))
+            {
+                transform.position = Vector2.MoveTowards(transform.position, target.position, Time.deltaTime * moveSpeed);
+            }
+
         }
 
         if (target.name == ("Player")&&isChase)
@@ -70,14 +60,27 @@ public class EnemyController : MonoBehaviour
         }
 
     }
+    public void SetLaserTarget(Transform laser)
+    {
+        target = laser;
+        Debug.Log($"[EnemyChase] 타겟 변경됨 → {laser.name}, tag: {laser.tag}");
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "Book")
         {
-            Debug.Log("책과 충돌");
+         
             Destroy(collision.gameObject);
             ani.SetBool("isChase", true);
             isChase = true;
+            if (target == null)
+            {
+                GameObject playerObj = GameObject.FindWithTag("Player");
+                if (playerObj != null)
+                    target = playerObj.transform;
+            }
+
+
         }
        
         
