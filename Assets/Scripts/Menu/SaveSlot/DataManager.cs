@@ -11,8 +11,7 @@ public class PlayerData
 {
     public string sceneName;
     public string date;
-    //Ä«¿îÆ® ¼¼±â
-   // public int count;
+
 }
 public class DataManager : MonoBehaviour
 {
@@ -26,7 +25,6 @@ public class DataManager : MonoBehaviour
     private DateTime dateText2;
     private DateTime dateText3;
 
-   // public DateTime[] array = new DateTime[3];
 
 
             
@@ -59,7 +57,6 @@ public class DataManager : MonoBehaviour
     {
         nowPlayer.sceneName = sceneName;
         nowPlayer.date = date;
-       // nowPlayer.count = count;
 
         // ºó ½½·Ô Ã£±â
         for (int i = 0; i < 3; i++)
