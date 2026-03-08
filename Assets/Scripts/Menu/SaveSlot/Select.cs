@@ -14,7 +14,6 @@ public class Select : MonoBehaviour
 {
     public Text[] slotText;
     bool[] savefile = new bool[3]; //세이브 파일 존재 유무
- //   private int count;
     public int num=0;
     public string Scenename;
     public GameObject saveOption;
@@ -24,8 +23,7 @@ public class Select : MonoBehaviour
     private string Nowname;
     //날짜 및 시간 
     private string Nowdate;
-   
- //  private int Nowcount;
+  
 
     public DateTime[] array = new DateTime[3];
     public DateTime dateTime1;
@@ -99,18 +97,15 @@ public class Select : MonoBehaviour
         //날짜 및 시간 
         Nowdate = DateTime.Now.ToString("yyyy/MM/dd/HH:mm:ss");
 
-     //   Nowcount = count;
-
         Debug.Log("현재 데이터" + Nowname);
         Debug.Log("현재 데이터" + Nowdate);
-      // Debug.Log("현재 데이터" + Nowcount);
+   
     }
     public void SetData(string name, string data, int count)
     {
         //받아온 값을 nowPlayer 데이터 값에 넣어 설정
         DataManager.instance.nowPlayer.sceneName = name;
         DataManager.instance.nowPlayer.date = data;
-     //   DataManager.instance.nowPlayer.count = count;
         //데이터를 인스턴스에 저장
         DataManager.instance.SaveData();
     }
@@ -118,7 +113,6 @@ public class Select : MonoBehaviour
     public void CountSlot()
     {
         NowData();
-      //  DataManager.instance.FindSaveSlot(Nowname, Nowdate, Nowcount);
         DataManager.instance.FindSaveSlot(Nowname, Nowdate);
         SetUI();                  
         saveOption.SetActive(false);

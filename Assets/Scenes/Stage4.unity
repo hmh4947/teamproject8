@@ -242,7 +242,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28997265}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.43, y: 1.12, z: 0}
+  m_LocalPosition: {x: -6.55, y: -3.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -531,8 +531,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 217900482}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: 1.26, z: 0}
-  m_LocalScale: {x: 1, y: 0.1625, z: 1}
+  m_LocalPosition: {x: -4, y: 0.118, z: 0}
+  m_LocalScale: {x: 1, y: 0.16249998, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 16
@@ -834,7 +834,7 @@ MonoBehaviour:
   EnemyInitPos: {x: 0, y: 0}
   Laser: {fileID: 612152097963694541, guid: f797a7a61ffcafd4bba35ec3761b3a7a, type: 3}
   isChase: 0
-  moveSpeed: 1
+  moveSpeed: 5
 --- !u!95 &580157446
 Animator:
   serializedVersion: 5
@@ -974,8 +974,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 653689417}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.85, y: -0.1500001, z: 0}
-  m_LocalScale: {x: 4.420572, y: 0.28617153, z: 1}
+  m_LocalPosition: {x: -3.5753, y: -0.1500001, z: 0}
+  m_LocalScale: {x: 3.8710947, y: 0.28617153, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -1748,7 +1748,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1059480432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2413,8 +2413,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1523943654}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.63, y: -1.5300001, z: 0}
-  m_LocalScale: {x: 4.186984, y: 0.28617153, z: 1}
+  m_LocalPosition: {x: -9.6892, y: -1.5300001, z: 0}
+  m_LocalScale: {x: 4.0684533, y: 0.28617153, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8

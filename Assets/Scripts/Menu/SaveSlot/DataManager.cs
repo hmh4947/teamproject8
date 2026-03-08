@@ -25,8 +25,11 @@ public class DataManager : MonoBehaviour
     private DateTime dateText2;
     private DateTime dateText3;
 
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
             
     private void Awake()
     {
@@ -40,6 +43,7 @@ public class DataManager : MonoBehaviour
             Destroy(this.gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
+
         path = Application.persistentDataPath+"/save";
         if (!Directory.Exists(path))
         {

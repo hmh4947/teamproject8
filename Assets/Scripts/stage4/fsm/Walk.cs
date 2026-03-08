@@ -40,7 +40,10 @@ public class Walk : MonoBehaviour,IBaseState<Player>
 
 
         _player.rigid.velocity = new Vector2(h * _player.currentSpeed, _player.rigid.velocity.y);
-        _player.spriteRenderer.flipX = h < 0;
+        if (h != 0)
+        {
+            _player.spriteRenderer.flipX = h < 0;
+        }
 
     }
     public void OperateExit(Player sender)

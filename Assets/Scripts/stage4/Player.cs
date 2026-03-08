@@ -136,7 +136,7 @@ public class Player : MonoBehaviour
         Vector3 worldMouse = _cam.ScreenToWorldPoint(mousePos);
         worldMouse.z = PlayerT.position.z;
 
-        // 2) 规氢 & 芭府 力茄
+        // 规氢 & 芭府 力茄
         Vector3 dir = worldMouse - PlayerT.position;
         if (dir.sqrMagnitude > LaserDistance * LaserDistance)
             dir = dir.normalized * LaserDistance;

@@ -56,7 +56,7 @@ public class EnemyController : MonoBehaviour
         if (target.name == ("Player")&&isChase)
         {
             rb.isKinematic = true;
-            Enemy.transform.position = Vector2.MoveTowards(Enemy.transform.position, target.position, Time.deltaTime * 7f);
+            Enemy.transform.position = Vector2.MoveTowards(Enemy.transform.position, target.position, Time.deltaTime * moveSpeed);
         }
 
     }
