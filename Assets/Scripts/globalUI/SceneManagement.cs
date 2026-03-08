@@ -55,6 +55,7 @@ public class SceneManagement : MonoBehaviour
     {
         scenes[0] = Prev_Scene;
         scenes[1] = Curr_Scene;
+     
        if (Curr_Scene != SceneManager.GetActiveScene().name)
        {
             Prev_Scene = Curr_Scene;
@@ -92,7 +93,10 @@ public class SceneManagement : MonoBehaviour
      
         Curr_Scene =curr_scene;
     }
-
+    public string getPrevScene()
+    {
+        return Prev_Scene;
+    }
    
     
 }

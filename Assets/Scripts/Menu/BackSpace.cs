@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class BackSpace : MonoBehaviour
 {
     bool isPause;
-
+ 
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +18,7 @@ public class BackSpace : MonoBehaviour
     
     public void BackSpaceBtn()
     {
+        if (SceneManagement.instance.getPrevScene() == "Title") return;
        
         //옵션창을 닫음
         SceneManagement.instance.gameObject.GetComponent<SceneManagement>().BackSpace();
