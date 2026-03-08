@@ -14,8 +14,8 @@ public class Test : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        LaserT = transform.position;
+      //  LaserT = transform.position;
      //   Debug.Log("로컬 위치: " + transform.localPosition);
-        Debug.Log("월드 위치: " + LaserT);
+       // Debug.Log("월드 위치: " + LaserT);
     }
 }

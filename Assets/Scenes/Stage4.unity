@@ -135,10 +135,10 @@ GameObject:
   - component: {fileID: 28997268}
   - component: {fileID: 28997267}
   - component: {fileID: 28997270}
-  - component: {fileID: 28997271}
   - component: {fileID: 28997266}
   - component: {fileID: 28997272}
   - component: {fileID: 28997273}
+  - component: {fileID: 28997271}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -242,7 +242,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28997265}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.34, y: -0.21, z: 0}
+  m_LocalPosition: {x: -5.43, y: 1.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -262,13 +262,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 3
   jumpPower: 14
-  runSpeed: 7
+  runSpeed: 4
   currentSpeed: 3
   PlayerT: {fileID: 28997269}
   LaserObj: {fileID: 612152097963694541, guid: f797a7a61ffcafd4bba35ec3761b3a7a, type: 3}
-  LaserDistance: 2
+  rigid: {fileID: 28997267}
+  spriteRenderer: {fileID: 28997268}
+  anim: {fileID: 0}
+  LaserDistance: 5
   PlayerObj: {fileID: 0}
   EnemyT: {fileID: 580157444}
+  runToggle: 0
 --- !u!95 &28997271
 Animator:
   serializedVersion: 5
@@ -527,7 +531,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 217900482}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.21, y: -3.83, z: 0}
+  m_LocalPosition: {x: -4, y: 1.26, z: 0}
   m_LocalScale: {x: 1, y: 0.1625, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -666,7 +670,7 @@ Transform:
   m_LocalScale: {x: 25.46286, y: -0.014398803, z: 0.51553595}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &519420033
 Animator:
@@ -810,7 +814,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.56224, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &580157445
 MonoBehaviour:
@@ -825,10 +829,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 28997269}
-  Distance: 0
+  Distance: 2
   Enemy: {fileID: 580157440}
   EnemyInitPos: {x: 0, y: 0}
   Laser: {fileID: 612152097963694541, guid: f797a7a61ffcafd4bba35ec3761b3a7a, type: 3}
+  isChase: 0
+  moveSpeed: 1
 --- !u!95 &580157446
 Animator:
   serializedVersion: 5
@@ -876,7 +882,7 @@ GameObject:
   - component: {fileID: 653689420}
   - component: {fileID: 653689419}
   - component: {fileID: 653689418}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Square (5)
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -968,8 +974,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 653689417}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.68, y: -0.1500001, z: 0}
-  m_LocalScale: {x: 4.224212, y: 0.28617153, z: 1}
+  m_LocalPosition: {x: -3.85, y: -0.1500001, z: 0}
+  m_LocalScale: {x: 4.420572, y: 0.28617153, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -1939,7 +1945,7 @@ GameObject:
   - component: {fileID: 1140877410}
   - component: {fileID: 1140877409}
   - component: {fileID: 1140877408}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Square (4)
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -2315,7 +2321,7 @@ GameObject:
   - component: {fileID: 1523943657}
   - component: {fileID: 1523943656}
   - component: {fileID: 1523943655}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Square (6)
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -2424,7 +2430,7 @@ GameObject:
   - component: {fileID: 1678817808}
   - component: {fileID: 1678817807}
   - component: {fileID: 1678817809}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Square (1)
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -2621,7 +2627,7 @@ GameObject:
   - component: {fileID: 1885365086}
   - component: {fileID: 1885365085}
   - component: {fileID: 1885365084}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Square (7)
   m_TagString: Platform
   m_Icon: {fileID: 0}
